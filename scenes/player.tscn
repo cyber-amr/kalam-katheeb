@@ -2,7 +2,37 @@
 
 [sub_resource type="GDScript" id="GDScript_6hpae"]
 script/source = "extends Node
+
+
+var pause_menu := preload(\"res://scenes/pause_menu.tscn\")
+
+
+func pause() -> void:
+	if !has_node(\"pause_menu\"):
+		add_child(pause_menu.instantiate())
+
+
+func unpause() -> void:
+	pass
+
+
+func quit() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
 "
 
 [node name="player" type="Node"]
 script = SubResource("GDScript_6hpae")
+
+[node name="pause" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "❚❚"
+
+[connection signal="pressed" from="pause" to="." method="pause"]

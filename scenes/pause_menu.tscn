@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn76iw4didv5e"]
+
+[sub_resource type="GDScript" id="GDScript_23aho"]
+script/source = "extends Node
+
+
+func unpause() -> void:
+	get_parent().unpause()
+	queue_free()
+
+
+func open_options() -> void:
+	pass # Replace with function body.
+
+
+func quit() -> void:
+	get_parent().quit()
+"
+
+[node name="pause_menu" type="Node"]
+script = SubResource("GDScript_23aho")
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(136, 109)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -50.5
+offset_right = 64.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Options"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/continue" to="." method="unpause"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="open_options"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="quit"]

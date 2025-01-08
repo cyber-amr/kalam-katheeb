@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr02gh4bb8u2j"]
+
+[sub_resource type="GDScript" id="GDScript_5wguk"]
+script/source = "extends Node
+
+
+func start() -> void:
+	pass # Replace with function body.
+
+
+func open_options() -> void:
+	pass # Replace with function body.
+
+
+func exit() -> void:
+	get_tree().quit()
+"
+
+[node name="main_menu" type="Node"]
+script = SubResource("GDScript_5wguk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Start"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Options"
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="start"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="open_options"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="exit"]

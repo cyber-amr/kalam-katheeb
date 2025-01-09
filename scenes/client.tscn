@@ -20,7 +20,7 @@ func quit() -> void:
 	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
 "
 
-[node name="player" type="Node"]
+[node name="client" type="Node3D"]
 script = SubResource("GDScript_6hpae")
 
 [node name="pause" type="Button" parent="."]

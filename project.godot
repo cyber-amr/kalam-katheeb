@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/bg_color=Color(0.117647, 0.137255, 0.160784, 1)
 config/icon="res://icon.svg"
 
+[autoload]
+
+Options="*res://scripts/Options.gd"
+
 [display]
 
 window/size/viewport_width=800

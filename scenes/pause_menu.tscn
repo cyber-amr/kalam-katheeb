@@ -4,13 +4,17 @@
 script/source = "extends Node
 
 
+var options_menu := preload(\"res://scenes/options_menu.tscn\")
+
+
 func unpause() -> void:
 	get_parent().unpause()
 	queue_free()
 
 
 func open_options() -> void:
-	pass # Replace with function body.
+	if !has_node(\"options_menu\"):
+		add_child(options_menu.instantiate())
 
 
 func quit() -> void:

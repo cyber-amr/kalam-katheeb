@@ -4,12 +4,16 @@
 script/source = "extends Node
 
 
+var options_menu := preload(\"res://scenes/options_menu.tscn\")
+
+
 func start() -> void:
 	get_tree().change_scene_to_file(\"res://scenes/realm.tscn\")
 
 
 func open_options() -> void:
-	pass # Replace with function body.
+	if !has_node(\"options_menu\"):
+		add_child(options_menu.instantiate())
 
 
 func exit() -> void:

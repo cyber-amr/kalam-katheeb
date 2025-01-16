@@ -5,7 +5,7 @@ script/source = "extends Node
 
 
 func _ready() -> void:
-	if get_parent().name != \"game\":
+	if get_parent().name != \"pause_menu\":
 		$\"TabContainer/Game\".queue_free()
 
 

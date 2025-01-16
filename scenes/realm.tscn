@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://btwaia2bbel8"]
+[gd_scene load_steps=7 format=3 uid="uid://btwaia2bbel8"]
+
+[ext_resource type="PackedScene" uid="uid://jedrohy0x1j1" path="res://scenes/client.tscn" id="1_nl1pg"]
+
+[sub_resource type="Environment" id="Environment_vokm1"]
+background_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7uory"]
+shading_mode = 2
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tjyjq"]
+material = SubResource("StandardMaterial3D_7uory")
+top_radius = 10.0
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87aka"]
+shading_mode = 2
+albedo_color = Color(0.2, 0.133333, 0.133333, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7s83e"]
+material = SubResource("StandardMaterial3D_87aka")
+top_radius = 1.0
+bottom_radius = 0.0
+height = 0.75
 
 [node name="realm" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vokm1")
+
+[node name="StaticBody3D" type="Node3D" parent="."]
+
+[node name="ground" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_tjyjq")
+skeleton = NodePath("../..")
+
+[node name="table" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+mesh = SubResource("CylinderMesh_7s83e")
+
+[node name="client" parent="." instance=ExtResource("1_nl1pg")]

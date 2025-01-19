@@ -25,6 +25,10 @@ Options="*res://scripts/Options.gd"
 window/size/viewport_width=800
 window/size/viewport_height=600
 
+[global_group]
+
+players="charachters who are part of the game"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
